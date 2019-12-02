@@ -34,7 +34,7 @@ The 5x5 emoji set is:
 | 🎈 | p | 23 | balloon |
 | 📕 | q | 24 | book |
 
-The icons were selected using the following criteria:
+### Criteria for Icon Selection
 - Family friendly
 - Easy to recognize
 - Legible at small sizes
