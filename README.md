@@ -1,8 +1,8 @@
-# FiveX5
+# 5x5 Emoji Password Standard & Library
 
-FiveX5 is a library for managing emoji passwords. It is designed to make it easy for people of all ages to create passwords that they
-can easily memorize. FiveX5 uses a set of 25 standard emojis that represent characters in a rad 25 password string. Each character
-has an emoji, index (0-24), ascii equivalent and name.
+5x5 (also written FiveX5) is a library for managing emoji passwords. It is designed to make it easy for people of all ages to create 
+passwords that they can easily memorize. FiveX5 uses a set of 25 standard emojis that represent characters in a rad 25 password
+string. Each character has an emoji, index (0-24), ascii equivalent and name.
 
 The 5x5 emoji set is:
 
@@ -41,5 +41,11 @@ The 5x5 emoji set is:
 - No similar emoji
 - Gender neutral
 
+### ASCII Equivalents
+The ASCII equivalents are "0123456789abcdefghijkmnp". The letters "l" and "o" are ommitted to avoid confusion with "1" and "0".
 
-
+### Using Stories as a Memory Device
+5x5 passwords are best remembered by constructing a story with the emoji. Examples
+1. The 😀 played ⚽ in the 💧:  😀⚽💧
+2. I read a 📕 under a 🌲. Then I played 🎹 with my pet 🐇:  📕🌲🎹🐇
+3. At night I 👁 the ⭐s and 🌙 while eating 🍕:  👁⭐🌙🍕

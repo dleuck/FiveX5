@@ -18,6 +18,14 @@ final class FiveX5Tests: XCTestCase {
         XCTAssertEqual(Emoji.all[2...3].map { $0 }, [Emoji.all[2], Emoji.all[3]])
     }
     
+    func testASCIIConversion() throws {
+        let pw = try EmojiList("🍋⚽🧩🌲✏️")
+        
+        print(pw.ascii)
+        
+        XCTAssertEqual(pw, try EmojiList.fromASCII(pw.ascii))
+    }
+    
     func testOutput() {
         print(Emoji.all.string)
         print(Emoji.all)
@@ -35,14 +43,14 @@ final class FiveX5Tests: XCTestCase {
             print(err.description)
         } catch { /* Can't happen */ }
     }
-    
+
+    /*
     func testPrintForDocs() {
         for emoji in Emoji.all {
-            print("| \(emoji.char) | \(emoji.asciiChar) | \(emoji.index) | \(emoji.name) |")
+            print("| \(emoji.char) | \(emoji.ascii) | \(emoji.index) | \(emoji.name) |")
         }
     }
-    
-    /*
+
      static var allTests = [\(emoji.asciiChar) |
          ("testOutput", testOutput),
          ("testStringRepresentation", testStringRepresentation),

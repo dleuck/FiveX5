@@ -11,6 +11,6 @@ public struct InvalidCharacterError : Error, CustomStringConvertible {
     var char: Character
     
     public var description:String {
-        return "\"\(char)\" is not a valid 5x5 emoji."
+        return "\"\(char)\" is not a valid 5x5 emoji or ASCII equivalent."
     }
 }

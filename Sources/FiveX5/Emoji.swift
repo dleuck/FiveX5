@@ -20,7 +20,7 @@ struct Emoji : Hashable, Equatable, CustomStringConvertible, CustomDebugStringCo
         Emoji.all.firstIndex(of:self)!
     }
     
-    var asciiChar: Character {
+    var ascii: Character {
         
         if index < 10 {
             return index.description.first!
@@ -32,9 +32,19 @@ struct Emoji : Hashable, Equatable, CustomStringConvertible, CustomDebugStringCo
         return Emoji.AlphaChars[charIndex]
     }
     
+    public static func fromASCII(_ asciiChar:Character) -> Emoji? {
+        for emoji in Emoji.all {
+            if emoji.ascii == asciiChar {
+                return emoji
+            }
+        }
+        
+        return nil
+    }
+    
     public var description: String { return char.description }
     
-    public var debugDescription: String { return "\(char) \(asciiChar) (\(index)) \(name)" }
+    public var debugDescription: String { return "\(char) \(ascii) (\(index)) \(name)" }
     
     var hexString: String {
         return String(char.unicodeScalars.first!.value, radix: 16, uppercase: true)

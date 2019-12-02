@@ -36,6 +36,21 @@ struct EmojiList : Collection, Hashable, Equatable, CustomStringConvertible, Cus
         self.emojis = emojis
     }
     
+    static func fromASCII(_ asciiText: String) throws -> EmojiList {
+        var newEmojis = [Emoji]()
+        
+        for c in asciiText {
+            let emoji = Emoji.fromASCII(c)
+            if emoji == nil {
+                throw InvalidCharacterError(char:c)
+            }
+            
+            newEmojis.append(emoji!)
+        }
+        
+        return EmojiList(newEmojis)
+    }
+    
     subscript(_ char: Character) -> Emoji? {
         return emojis.filter{ $0.char == char }.first
     }
@@ -45,6 +60,8 @@ struct EmojiList : Collection, Hashable, Equatable, CustomStringConvertible, Cus
     }
     
     var string: String { return map({"\($0.char)"}).joined() }
+    
+    var ascii: String { String(emojis.map { $0.ascii }) }
     
     var description: String { return "[\(map({"\($0.char)"}).joined(separator: ", "))]" }
     
