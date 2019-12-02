@@ -1,7 +1,7 @@
 # 5x5 Emoji Password Standard & Library
 
 5x5 (also written FiveX5) is a library for managing emoji passwords. It is designed to make it easy for people of all ages to create 
-passwords that they can easily memorize. FiveX5 uses a set of 25 standard emojis that represent characters in a rad 25 password
+passwords that they can easily memorize. 5x5 uses a set of 25 standard emojis that represent characters in a rad 25 password
 string. Each character has an emoji, index (0-24), ascii equivalent and name.
 
 The 5x5 emoji set is:
@@ -55,4 +55,4 @@ A minimum length of four emoji is recommended. There are 390,625 possible passwo
 emoji passwords are strongly preferred. Five emojis provide 9,765,625 possibilities and six emojis provide 244,140,625.
 
 Use `EmojiList.hasAdjacentRepeatingEmoji()` or the stronger `EmojiList.hasRepeatingEmoji()` to prevent passwords such
-as "😀😀😀😀".
+as "⭐😀😀😀⭐".
