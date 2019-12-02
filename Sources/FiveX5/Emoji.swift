@@ -13,8 +13,8 @@ public struct Emoji : Hashable, Equatable, CustomStringConvertible, CustomDebugS
     // Omit "l" and "o" to avoid confusion with 1 and 0
     private static let AlphaChars = "abcdefghijkmnpqr"
     
-    var char: Character
-    var name: String
+    public var char: Character
+    public var name: String
     
     init(char: Character, name: String) {
         self.char = char
