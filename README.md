@@ -33,3 +33,13 @@ The 5x5 emoji set is:
 | ☂️ | n | 22 | umbrella |
 | 🎈 | p | 23 | balloon |
 | 📕 | q | 24 | book |
+
+The icons were selected using the following criteria:
+- Family friendly
+- Easy to recognize
+- Legible at small sizes
+- No similar emoji
+- Gender neutral
+
+
+

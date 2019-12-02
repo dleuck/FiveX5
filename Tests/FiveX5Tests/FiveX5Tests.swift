@@ -8,7 +8,8 @@ final class FiveX5Tests: XCTestCase {
     }
     
     func testEquals() throws {
-        XCTAssertEqual(try EmojiList("🌈💡🌙"), EmojiList([Emoji.all["🌈"]!, Emoji.all["💡"]!,                                                     Emoji(char:"🌙", name:"moon")]))
+        XCTAssertEqual(try EmojiList("🌈💡🌙"), EmojiList([Emoji.all["🌈"]!, Emoji.all["💡"]!,
+                                                                 Emoji(char:"🌙", name:"moon")]))
     }
     
     func testSubscripts() {
@@ -17,30 +18,36 @@ final class FiveX5Tests: XCTestCase {
         XCTAssertEqual(Emoji.all[2...3].map { $0 }, [Emoji.all[2], Emoji.all[3]])
     }
     
+    func testOutput() {
+        print(Emoji.all.string)
+        print(Emoji.all)
+        print(Emoji.all.debugDescription)
+        
+        print(Emoji.all["🍕"]!.description)
+        print(Emoji.all["🌼"]!.debugDescription)
+        print(Emoji.all[2].debugDescription)
+        
+        print(Emoji.all[3...10])
+        
+        do {
+            try print(EmojiList("🌈💡🌙👁🦋"))
+        } catch let err as InvalidCharacterError {
+            print(err.description)
+        } catch { /* Can't happen */ }
+    }
+    
+    func testPrintForDocs() {
+        for emoji in Emoji.all {
+            print("| \(emoji.char) | \(emoji.asciiChar) | \(emoji.index) | \(emoji.name) |")
+        }
+    }
+    
     /*
-     static var allTests = [
-         ("tests", tests),
+     static var allTests = [\(emoji.asciiChar) |
+         ("testOutput", testOutput),
          ("testStringRepresentation", testStringRepresentation),
          ("testEquals", testEquals),
          ("testSubscripts", testSubscripts),
      ]
-     
-     func testOutput() {
-         print(Emoji.all.string)
-         print(Emoji.all)
-         print(Emoji.all.debugDescription)
-         
-         print(Emoji.all["🍕"]!.description)
-         print(Emoji.all["🌼"]!.debugDescription)
-         print(Emoji.all[2].debugDescription)
-         
-         print(Emoji.all[3...10])
-         
-         do {
-            try print(EmojiList("🌈💡🌙👁🦋"))
-         } catch let err as InvalidCharacterError {
-            print(err.description)
-         } catch { /* Can't happen */ }
-     }
      */
 }
