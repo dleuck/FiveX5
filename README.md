@@ -49,3 +49,10 @@ The ASCII equivalents are "0123456789abcdefghijkmnp". The letters "l" and "o" ar
 1. 😀 played ⚽ in the 💧:  😀⚽💧
 2. Read a 📕 under a 🌲. Then play 🎹 with your pet 🐇:  📕🌲🎹🐇
 3. I 👁 the ⭐s and 🌙 while eating 🍕:  👁⭐🌙🍕
+
+### Checking for strong passwords
+A minimum length of four emoji is recommended. There are 390,625 possible passwords for four emoji 5x5 passwords. Five or six
+emoji passwords are strongly preferred. Five emojis provide 9,765,625 possibilities and six emojis provide 244,140,625.
+
+Use `EmojiList.hasAdjacentRepeatingEmoji()` or the stronger `EmojiList.hasRepeatingEmoji()` to prevent passwords such
+as "😀😀😀😀".
