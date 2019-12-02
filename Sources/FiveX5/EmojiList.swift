@@ -9,15 +9,18 @@ import Foundation
 /**
  A string of 5x5 emoji characters. This generally represents a 5x5 password.
  */
-struct EmojiList : Collection, Hashable, Equatable, CustomStringConvertible, CustomDebugStringConvertible {
+public struct EmojiList : Collection, Hashable, Equatable, CustomStringConvertible, CustomDebugStringConvertible {
     
     var emojis: [Emoji]
     
-    init(_ emojis: Emoji...) {
+    public init(_ emojis: Emoji...) {
         self.init(emojis)
     }
     
-    init(_ emojis: String) throws {
+    /**
+     Throws InvalidCharacterError(char:) if any of the String's characters are not in the 25 character 5x5 emoji set.
+     */
+    public init(_ emojis: String) throws {
         var newList = [Emoji]()
 
         for char in emojis {
@@ -32,11 +35,15 @@ struct EmojiList : Collection, Hashable, Equatable, CustomStringConvertible, Cus
         self.init(newList)
     }
     
-    init(_ emojis: [Emoji]) {
+    public init(_ emojis: [Emoji]) {
         self.emojis = emojis
     }
     
-    static func fromASCII(_ asciiText: String) throws -> EmojiList {
+    /**
+     Throws InvalidCharacterError(char:) if any of the String's characters are not ascii equivalents for the 25
+     character 5x5 emoji set. (0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j,k,m,n,p,q)
+     */
+    public static func fromASCII(_ asciiText: String) throws -> EmojiList {
         var newEmojis = [Emoji]()
         
         for c in asciiText {
@@ -51,47 +58,71 @@ struct EmojiList : Collection, Hashable, Equatable, CustomStringConvertible, Cus
         return EmojiList(newEmojis)
     }
     
-    subscript(_ char: Character) -> Emoji? {
+    public func hasAdjacentRepeatingEmoji() -> Bool {
+        if emojis.count < 2 { return false }
+        
+        var lastEmoji = emojis.first!
+        for emoji in emojis[1...] {
+            if emoji == lastEmoji { return true }
+            lastEmoji = emoji
+        }
+        
+        return false
+    }
+    
+    public func hasRepeatingEmoji() -> Bool {
+        if emojis.count < 2 { return false }
+        
+        for emoji in emojis {
+            var prunedEmojis = emojis
+            prunedEmojis.remove(at: emojis.firstIndex(of: emoji)!)
+            if prunedEmojis.contains(emoji) { return true }
+        }
+        
+        return false
+    }
+    
+    public subscript(_ char: Character) -> Emoji? {
         return emojis.filter{ $0.char == char }.first
     }
     
-    subscript(position: EmojiList.Index) -> EmojiList.Element {
+    public subscript(position: EmojiList.Index) -> EmojiList.Element {
         return emojis[position]
     }
     
-    var string: String { return map({"\($0.char)"}).joined() }
+    public var string: String { return map({"\($0.char)"}).joined() }
     
-    var ascii: String { String(emojis.map { $0.ascii }) }
+    public var ascii: String { String(emojis.map { $0.ascii }) }
     
-    var description: String { return "[\(map({"\($0.char)"}).joined(separator: ", "))]" }
+    public var description: String { return "[\(map({"\($0.char)"}).joined(separator: ", "))]" }
     
-    var debugDescription: String { return emojis.debugDescription }
+    public var debugDescription: String { return emojis.debugDescription }
     
     // Hashable & equatable
 
-    var hashValue: Int { emojis.hashValue }
+    public var hashValue: Int { emojis.hashValue }
 
-    func hash(into hasher: inout Hasher) { emojis.hash(into: &hasher) }
+    public func hash(into hasher: inout Hasher) { emojis.hash(into: &hasher) }
     
-    static func ==(lhs: EmojiList, rhs: EmojiList) -> Bool {
+    public static func ==(lhs: EmojiList, rhs: EmojiList) -> Bool {
         return lhs.emojis == rhs.emojis && lhs.emojis == rhs.emojis
     }
 
     // Collection functions & properties
     
-    typealias Element = Emoji
+    public typealias Element = Emoji
     
-    typealias Index = Int
+    public typealias Index = Int
     
-    var startIndex: EmojiList.Index { return emojis.startIndex }
+    public var startIndex: EmojiList.Index { return emojis.startIndex }
     
-    var endIndex: EmojiList.Index { return emojis.endIndex }
+    public var endIndex: EmojiList.Index { return emojis.endIndex }
     
-    var isEmpty: Bool { return emojis.isEmpty }
+    public var isEmpty: Bool { return emojis.isEmpty }
     
-    var count: Int { return emojis.count }
+    public var count: Int { return emojis.count }
     
-    func index(after i: EmojiList.Index) -> EmojiList.Index {
+    public func index(after i: EmojiList.Index) -> EmojiList.Index {
         return emojis.index(after: i)
     }
 }

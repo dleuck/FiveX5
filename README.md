@@ -46,6 +46,6 @@ The ASCII equivalents are "0123456789abcdefghijkmnp". The letters "l" and "o" ar
 
 ### Using Stories as a Memory Device
 5x5 passwords are best remembered by constructing a story with the emoji. Examples
-1. The 😀 played ⚽ in the 💧:  😀⚽💧
-2. I read a 📕 under a 🌲. Then I played 🎹 with my pet 🐇:  📕🌲🎹🐇
-3. At night I 👁 the ⭐s and 🌙 while eating 🍕:  👁⭐🌙🍕
+1. 😀 played ⚽ in the 💧:  😀⚽💧
+2. Read a 📕 under a 🌲. Then play 🎹 with your pet 🐇:  📕🌲🎹🐇
+3. I 👁 the ⭐s and 🌙 while eating 🍕:  👁⭐🌙🍕

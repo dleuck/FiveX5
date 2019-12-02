@@ -26,6 +26,19 @@ final class FiveX5Tests: XCTestCase {
         XCTAssertEqual(pw, try EmojiList.fromASCII(pw.ascii))
     }
     
+    func testAdjacentRepeatingEmoji() throws {
+        XCTAssertFalse(try EmojiList("🍋⚽🧩🌲✏️").hasAdjacentRepeatingEmoji())
+        XCTAssertFalse(try EmojiList("🍋⚽🧩⚽✏️").hasAdjacentRepeatingEmoji())
+        XCTAssertTrue(try EmojiList("🍋⚽⚽🌲✏️").hasAdjacentRepeatingEmoji())
+    }
+    
+    func testRepeatingEmoji() throws {
+        XCTAssertFalse(try EmojiList("🍋⚽🧩🌲✏️").hasRepeatingEmoji())
+        XCTAssertTrue(try EmojiList("🍋⚽🧩⚽✏️").hasRepeatingEmoji())
+        XCTAssertTrue(try EmojiList("🍋⚽🧩🌲🍋").hasRepeatingEmoji())
+        XCTAssertTrue(try EmojiList("🍋⚽⚽🌲✏️").hasRepeatingEmoji())
+    }
+    
     func testOutput() {
         print(Emoji.all.string)
         print(Emoji.all)

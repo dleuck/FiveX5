@@ -8,7 +8,7 @@
  An Emoji from the 5x5 standard set of 25:
      😀⭐🐟🌞👽🍋⚽💧🐤🌼🍎🌈💡🌙👁🦋✏️🍕🧩🌲🎹🐇☂️🎈📕
  */
-struct Emoji : Hashable, Equatable, CustomStringConvertible, CustomDebugStringConvertible {
+public struct Emoji : Hashable, Equatable, CustomStringConvertible, CustomDebugStringConvertible {
 
     // Omit "l" and "o" to avoid confusion with 1 and 0
     private static let AlphaChars = "abcdefghijkmnpqr"
@@ -16,11 +16,16 @@ struct Emoji : Hashable, Equatable, CustomStringConvertible, CustomDebugStringCo
     var char: Character
     var name: String
     
-    var index: Int {
+    init(char: Character, name: String) {
+        self.char = char
+        self.name = name
+    }
+    
+    public var index: Int {
         Emoji.all.firstIndex(of:self)!
     }
     
-    var ascii: Character {
+    public var ascii: Character {
         
         if index < 10 {
             return index.description.first!
@@ -33,8 +38,10 @@ struct Emoji : Hashable, Equatable, CustomStringConvertible, CustomDebugStringCo
     }
     
     public static func fromASCII(_ asciiChar:Character) -> Emoji? {
+        let lcChar = asciiChar.lowercased().first!
+        
         for emoji in Emoji.all {
-            if emoji.ascii == asciiChar {
+            if emoji.ascii == lcChar {
                 return emoji
             }
         }
@@ -46,17 +53,17 @@ struct Emoji : Hashable, Equatable, CustomStringConvertible, CustomDebugStringCo
     
     public var debugDescription: String { return "\(char) \(ascii) (\(index)) \(name)" }
     
-    var hexString: String {
+    public var hexString: String {
         return String(char.unicodeScalars.first!.value, radix: 16, uppercase: true)
     }
     
-    var unicodeString: String {
+    public var unicodeString: String {
         return char.unicodeScalars.first!.escaped(asASCII: true)
     }
     
     // candidates: 🌵🐢🌮🎲🎼🎺🏀🍩🍍🥝🥕
     
-    static var all = EmojiList(
+    public static var all = EmojiList(
         Emoji(char:"😀", name:"smile"),
         Emoji(char:"⭐", name:"star"),
         Emoji(char:"🐟", name:"fish"),
@@ -90,11 +97,11 @@ struct Emoji : Hashable, Equatable, CustomStringConvertible, CustomDebugStringCo
     
     // Hashable & equatable
 
-    var hashValue: Int { char.hashValue }
+    public var hashValue: Int { char.hashValue }
 
-    func hash(into hasher: inout Hasher) { char.hash(into: &hasher) }
+    public func hash(into hasher: inout Hasher) { char.hash(into: &hasher) }
     
-    static func ==(lhs: Emoji, rhs: Emoji) -> Bool {
+    public static func ==(lhs: Emoji, rhs: Emoji) -> Bool {
         return lhs.char == rhs.char && lhs.char == rhs.char
     }
 }
