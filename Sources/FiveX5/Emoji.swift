@@ -6,7 +6,7 @@
 
 /**
  An Emoji from the 5x5 standard set of 25:
-     😀⭐🐟🌞👽🍋⚽💧🐤🌼🍎🌈💡🌙👁🦋✏️🍕🧩🌲🎹🐇☂️🎈📕
+     😀⭐🐟🌞👽🍎⚽💧🐤🌼👟🌈💡🌙👁🦋✏️🍕🧩🌲🎹🐇☂️🎈📕
  */
 public struct Emoji : Hashable, Equatable, CustomStringConvertible, CustomDebugStringConvertible {
 
@@ -70,13 +70,14 @@ public struct Emoji : Hashable, Equatable, CustomStringConvertible, CustomDebugS
         Emoji(char:"🌞", name:"sun"),
         Emoji(char:"👽", name:"alien"),
 
-        Emoji(char:"🍋", name:"lemon"),
+        Emoji(char:"🍎", name:"apple"),
         Emoji(char:"⚽", name:"soccer ball"),
         Emoji(char:"💧", name:"drop"),
         Emoji(char:"🐤", name:"bird"),
         Emoji(char:"🌼", name:"flower"),
 
-        Emoji(char:"🍎", name:"apple"),
+        
+        Emoji(char:"👟", name:"shoe"),
         Emoji(char:"🌈", name:"rainbow"),
         Emoji(char:"💡", name:"light"),
         Emoji(char:"🌙", name:"moon"),

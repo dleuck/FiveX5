@@ -13,12 +13,12 @@ The 5x5 emoji set is:
 | 🐟 | 2 | 2 | fish |
 | 🌞 | 3 | 3 | sun |
 | 👽 | 4 | 4 | alien |
-| 🍋 | 5 | 5 | lemon |
+| 🍎 | a | 10 | apple |
 | ⚽ | 6 | 6 | soccer ball |
 | 💧 | 7 | 7 | drop |
 | 🐤 | 8 | 8 | bird |
 | 🌼 | 9 | 9 | flower |
-| 🍎 | a | 10 | apple |
+| 👟 | a | 10 | shoe |
 | 🌈 | b | 11 | rainbow |
 | 💡 | c | 12 | light |
 | 🌙 | d | 13 | moon |
@@ -46,9 +46,8 @@ The ASCII equivalents are "0123456789abcdefghijkmnp". The letters "l" and "o" ar
 
 ### Using Stories as a Memory Device
 5x5 passwords are best remembered by constructing a story with the emoji. Examples
-1. 😀 played ⚽ in the 💧:  😀⚽💧
-2. Read a 📕 under a 🌲. Then play 🎹 with your pet 🐇:  📕🌲🎹🐇
-3. I 👁 the ⭐s and 🌙 while eating 🍕:  👁⭐🌙🍕
+1. Read a 📕 under a 🌲. Then play 🎹 with your pet 🐇:  📕🌲🎹🐇
+2. I 👁 the ⭐s and 🌙 while eating 🍕:  👁⭐🌙🍕
 
 ### Checking for strong passwords
 A minimum length of four emoji is recommended. There are 390,625 possible passwords for four emoji 5x5 passwords. Five or six
