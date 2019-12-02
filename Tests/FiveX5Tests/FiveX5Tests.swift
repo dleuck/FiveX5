@@ -2,14 +2,45 @@ import XCTest
 @testable import FiveX5
 
 final class FiveX5Tests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(FiveX5().text, "Hello, World!")
+    
+    func testStringRepresentation() {
+        XCTAssertEqual(Emoji.all.string, "😀⭐🐟🌞👽🍋⚽💧🐤🌼🍎🌈💡🌙👁🦋✏️🍕🧩🌲🎹🐇☂️🎈📕")
     }
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
+    
+    func testEquals() throws {
+        XCTAssertEqual(try EmojiList("🌈💡🌙"), EmojiList([Emoji.all["🌈"]!, Emoji.all["💡"]!,                                                     Emoji(char:"🌙", name:"moon")]))
+    }
+    
+    func testSubscripts() {
+        XCTAssertEqual(Emoji.all["🍕"]!.char, "🍕")
+        XCTAssertEqual(Emoji.all.first?.char, "😀")
+        XCTAssertEqual(Emoji.all[2...3].map { $0 }, [Emoji.all[2], Emoji.all[3]])
+    }
+    
+    /*
+     static var allTests = [
+         ("tests", tests),
+         ("testStringRepresentation", testStringRepresentation),
+         ("testEquals", testEquals),
+         ("testSubscripts", testSubscripts),
+     ]
+     
+     func testOutput() {
+         print(Emoji.all.string)
+         print(Emoji.all)
+         print(Emoji.all.debugDescription)
+         
+         print(Emoji.all["🍕"]!.description)
+         print(Emoji.all["🌼"]!.debugDescription)
+         print(Emoji.all[2].debugDescription)
+         
+         print(Emoji.all[3...10])
+         
+         do {
+            try print(EmojiList("🌈💡🌙👁🦋"))
+         } catch let err as InvalidCharacterError {
+            print(err.description)
+         } catch { /* Can't happen */ }
+     }
+     */
 }
