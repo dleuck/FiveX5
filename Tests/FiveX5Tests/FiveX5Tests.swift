@@ -1,4 +1,5 @@
 import XCTest
+
 @testable import FiveX5
 
 final class FiveX5Tests: XCTestCase {
@@ -57,6 +58,13 @@ final class FiveX5Tests: XCTestCase {
         } catch { /* Can't happen */ }
     }
 
+    /*
+    func testKiCore() {
+        print("Aloha World".after(" ")!)
+        XCTAssertEqual("Aloha World".before(" "), "Aloha")
+    }
+    */
+ 
     /*
     func testPrintForDocs() {
         for emoji in Emoji.all {
